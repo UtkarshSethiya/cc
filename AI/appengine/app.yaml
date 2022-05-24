@@ -1,0 +1,7 @@
+runtime:python27
+api_version:1
+thread_safe:false
+
+handler:
+-url: /.*
+script:index.py

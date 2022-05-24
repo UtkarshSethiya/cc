@@ -1,0 +1,52 @@
+flag = 99999
+V=5
+G = [[0,9,75,0,0],
+     [75,95,0,1,66],
+     [9,0,95,19,42],
+     [0,19,11,0,31],
+     [0,42,66,31,0]]
+selected = [0,0,0,0,0]
+no_edge=0
+selected[0]=True
+print("Edge : Weight\n")
+while(no_edge<V-1):
+  min = flag
+  x=0
+  y=0
+  for i in range(V):
+     if selected[i]:
+       for j in range(V):
+         if((not selected[j])and G[i][j]):
+           if min>G[i][j]:
+             min=G[i][j]
+             x=i
+             y=j
+  print(str(x)+"-"str(y)+":"+str(G[x][y]))
+  selected[y]=True
+  no_edge+=1
+
+
+"""Prim’s Algorithm is a famous greedy algorithm.
+It is used for finding the Minimum Spanning Tree (MST) of a given graph.
+To apply Prim’s algorithm, the given graph must be weighted, connected and undirected
+
+Step-01:
+ 
+
+Randomly choose any vertex.
+The vertex connecting to the edge having least weight is usually selected.
+ 
+
+Step-02:
+ 
+
+Find all the edges that connect the tree to new vertices.
+Find the least weight edge among those edges and include it in the existing tree.
+If including that edge creates a cycle, then reject that edge and look for the next least weight edge.
+ 
+
+Step-03:
+ 
+
+Keep repeating step-02 until all the vertices are included and Minimum Spanning Tree (MST) is obtained.
+ """
